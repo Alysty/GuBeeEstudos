@@ -1,0 +1,5 @@
+Maria, maria@gmail.com, 3200
+Alex, alex@gmail.com, 1900
+Marco, marco@gmail.com, 1700
+Bob, bob@gmail.com, 3500
+Anna, anna@gmail.com, 2800
