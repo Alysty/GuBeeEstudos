@@ -53,7 +53,7 @@ public class DB {
         }
     }
     private static Properties loadProperties(){
-        System.out.println(System.getProperty("user.dir"));
+        
         try(FileInputStream fs = new FileInputStream("src/db.properties") ){
             Properties props =  new Properties();
             props.load(fs);

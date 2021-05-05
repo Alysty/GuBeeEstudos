@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31b15150-6ab1-4648-9f34-b08191ff49dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDBC_Secao21.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JDBC_Secao21/Program.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JDBC_Secao21/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JDBC_Secao21/db/DB.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/JDBC_Secao21/db/DbException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/DB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/DbException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Funcional_e_Lambda_Secao20/Funcional_e_Lambda_Secao20.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Funcional_e_Lambda_Secao20/Funcional_e_Lambda_Secao20.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620212848187</updated>
-      <workItem from="1620212849740" duration="4209000" />
+      <workItem from="1620212849740" duration="5821000" />
     </task>
     <servers />
   </component>
