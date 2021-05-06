@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31b15150-6ab1-4648-9f34-b08191ff49dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/PROJETO_CRUD_Store_Secao23.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/app/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/controllers/Contrains.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/controllers/ViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/db/DB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/db/DbException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/db/db.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/gui/View.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/gui/util/Alerts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX_Secao22/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaFX_Secao22/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaFX_Secao22/JavaFxApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaFX_Secao22/PROJETO_CRUD_Store_Secao23.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../java-libs/jdbc-connectors/mysql-connector-java-8.0.24.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -62,13 +76,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,6 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1620212848187</updated>
       <workItem from="1620212849740" duration="5821000" />
+      <workItem from="1620302678429" duration="753000" />
     </task>
     <servers />
   </component>
@@ -104,5 +121,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
