@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31b15150-6ab1-4648-9f34-b08191ff49dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/PROJETO_CRUD_Store_Secao23.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/app/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/controllers/Contrains.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/controllers/ViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/db/DB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/db/DbException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/db/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/gui/View.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/gui/util/Alerts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX_Secao22/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaFX_Secao22/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaFX_Secao22/JavaFxApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaFX_Secao22/PROJETO_CRUD_Store_Secao23.iml" afterDir="false" />
-    </list>
+    <list default="true" id="31b15150-6ab1-4648-9f34-b08191ff49dd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ViewController implements Initializable {
+public class MainViewController implements Initializable {
 
 
     @Override
