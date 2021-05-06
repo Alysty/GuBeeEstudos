@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox prefHeight="203.0" prefWidth="451.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AboutViewController">
+   <children>
+      <Label text="About">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <padding>
+            <Insets left="15.0" top="10.0" />
+         </padding>
+      </Label>
+      <Label text="This project is a simple demo with a CRUD for sellers and departments">
+         <padding>
+            <Insets left="15.0" top="10.0" />
+         </padding>
+      </Label>
+   </children>
+</VBox>

@@ -2,12 +2,13 @@ package app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+
+    private static Scene mainScene;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -17,12 +18,19 @@ public class Main extends Application {
         ScrollPane root = loader.load();
         root.setFitToHeight(Boolean.TRUE);
         root.setFitToWidth(Boolean.TRUE);
-        Scene mainScene = new Scene(root);
+        mainScene = new Scene(root);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(mainScene);
         primaryStage.show();
     }
 
+    public static Scene getMainScene() {
+        return mainScene;
+    }
+
+    public static void setMainScene(Scene mainScene) {
+        Main.mainScene = mainScene;
+    }
 
     public static void main(String[] args) {
         launch(args);
