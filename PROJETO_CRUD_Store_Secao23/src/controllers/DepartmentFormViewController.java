@@ -1,6 +1,7 @@
 package controllers;
 
 import Services.DepartmentServices;
+import controllers.listener.DataChangeListener;
 import db.DbException;
 import entities.Department;
 import gui.util.Alerts;
@@ -14,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DepartmentFormViewController implements Initializable {
@@ -28,9 +31,13 @@ public class DepartmentFormViewController implements Initializable {
     private Button buttonSave;
     @FXML
     private Button buttonCancel;
+
+
     //Attributes not attached to FXML
     private Department departmentEntity;
     private DepartmentServices departmentServices;
+    private List<DataChangeListener> dataChangeListenerList= new ArrayList<>();
+
     //methods with direct attachment to the GUI
     @FXML
     public void buttonSaveAction(ActionEvent actionEvent){
@@ -44,16 +51,20 @@ public class DepartmentFormViewController implements Initializable {
             departmentServices.saveOrUpdate(
                     new Department(Utils.tryToParseIntElseNull(textFieldID.getText()), textFieldName.getText())
             );
+            notifyDataChangeListeners();
             Utils.currentStage(actionEvent).close();
         }catch(DbException e){
             Alerts.showAlert("Error saving object in the database", null, e.getMessage(), Alert.AlertType.ERROR);
         }
 
     }
+
+    
     @FXML
     public void buttonCancelAction(ActionEvent actionEvent){
         Utils.currentStage(actionEvent).close();
     }
+
 
     //methods not attached to FXML directly
     public void setDepartmentServices(DepartmentServices departmentServices){
@@ -73,6 +84,14 @@ public class DepartmentFormViewController implements Initializable {
         }
         textFieldName.setText(departmentEntity.getName());
 
+    }
+    public void subscribeToDataChangeListener(DataChangeListener dataChangeListener){
+        dataChangeListenerList.add(dataChangeListener);
+    }
+    private void notifyDataChangeListeners() {
+        for (DataChangeListener dataChangeListener: dataChangeListenerList) {
+            dataChangeListener.onDataChanged();
+        }
     }
 
     @Override

@@ -2,6 +2,7 @@ package controllers;
 
 import Services.DepartmentServices;
 import app.Main;
+import controllers.listener.DataChangeListener;
 import entities.Department;
 import gui.util.Alerts;
 import gui.util.Utils;
@@ -25,7 +26,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class DepartmentListViewController implements Initializable {
+public class DepartmentListViewController implements Initializable, DataChangeListener {
     // Declaration of attributes attached to FXML
     @FXML
     private TableView<Department> tableViewDepartment;
@@ -84,8 +85,8 @@ public class DepartmentListViewController implements Initializable {
             DepartmentFormViewController departmentFormViewController = loader.getController();
             departmentFormViewController.setDepartmentEntity(department);
             departmentFormViewController.setDepartmentServices(departmentServices);
+            departmentFormViewController.subscribeToDataChangeListener(this);
             departmentFormViewController.updateFormData();
-
             Stage newStage = new Stage();
             newStage.setTitle("Register a new Department");
             newStage.setScene(new Scene(pane));
@@ -96,5 +97,10 @@ public class DepartmentListViewController implements Initializable {
         }catch (IOException e){
             Alerts.showAlert("Error loading new view",null, "ERROR loading view DepartmentFormView with error message:" + e, Alert.AlertType.ERROR);
         }
+    }
+
+    @Override
+    public void onDataChanged() {
+        updateTableView();
     }
 }
