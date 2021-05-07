@@ -3,17 +3,24 @@ package controllers;
 import Services.DepartmentServices;
 import app.Main;
 import entities.Department;
-import javafx.beans.Observable;
+import gui.util.Alerts;
+import gui.util.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -32,13 +39,13 @@ public class DepartmentListViewController implements Initializable {
     //Attributes not attached to FXML
     private DepartmentServices service;
     private ObservableList<Department> observableList;
-    //methods attached to the GUI
+    //methods with direct attachment to the GUI
     @FXML
-    public void buttonRegisterNewAction(){
-        System.out.println("Test for the method: ButtonRegisterNewAction");
+    public void buttonRegisterNewAction(ActionEvent actionEvent){
+        createDialogFormView("/gui/DepartmentFormView.fxml", Utils.currentStage(actionEvent));
     }
 
-    //methods not attached to FXML
+    //methods not attached to FXML directly
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeNodes();
@@ -64,5 +71,21 @@ public class DepartmentListViewController implements Initializable {
         List<Department> list = service.findAll();
         observableList = FXCollections.observableArrayList(list);
         tableViewDepartment.setItems(observableList);
+    }
+
+    private void createDialogFormView(String absolutePath, Stage parentStage){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(absolutePath));
+            Pane pane = loader.load();
+            Stage newStage = new Stage();
+            newStage.setTitle("Register a new Department");
+            newStage.setScene(new Scene(pane));
+            newStage.initOwner(parentStage);
+            newStage.setResizable(Boolean.FALSE);
+            newStage.initModality(Modality.WINDOW_MODAL);
+            newStage.showAndWait();
+        }catch (IOException e){
+            Alerts.showAlert("Error loading new view",null, "ERROR loading view DepartmentFormView with error message:" + e, Alert.AlertType.ERROR);
+        }
     }
 }
