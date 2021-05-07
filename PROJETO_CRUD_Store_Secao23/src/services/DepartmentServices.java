@@ -23,4 +23,7 @@ public class DepartmentServices {
             departmentDao.update(department);
         }
     }
+    public void delete(Department department){
+        departmentDao.deleteById(department.getId());
+    }
 }
