@@ -1,5 +1,7 @@
 package controllers;
 
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.scene.control.*;
 import services.DepartmentServices;
 import app.Main;
 import controllers.listener.DataChangeListener;
@@ -13,10 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -36,7 +34,8 @@ public class DepartmentListViewController implements Initializable, DataChangeLi
     private TableColumn<Department,String> tableColumnName;
     @FXML
     private Button buttonRegisterNew;
-
+    @FXML
+    private TableColumn<Department, Department> tableColumnEdit;
     //Attributes not attached to FXML
     private DepartmentServices service;
     private ObservableList<Department> observableList;
@@ -75,6 +74,7 @@ public class DepartmentListViewController implements Initializable, DataChangeLi
         List<Department> list = service.findAll();
         observableList = FXCollections.observableArrayList(list);
         tableViewDepartment.setItems(observableList);
+        initEditButtons();
     }
 
     private void createDialogFormView(DepartmentServices departmentServices, Department department, String absolutePath, Stage parentStage){
@@ -102,5 +102,25 @@ public class DepartmentListViewController implements Initializable, DataChangeLi
     @Override
     public void onDataChanged() {
         updateTableView();
+    }
+
+    private void initEditButtons() {
+        tableColumnEdit.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+        tableColumnEdit.setCellFactory(param -> new TableCell<Department, Department>() {
+            private final Button button = new Button("edit");
+
+            @Override
+            protected void updateItem(Department department, boolean empty) {
+                super.updateItem(department, empty);
+                if (department == null) {
+                    setGraphic(null);
+                    return;
+                }
+                setGraphic(button);
+                button.setOnAction(
+                        event -> createDialogFormView(
+                                 new DepartmentServices(),department,"/gui/DepartmentFormView.fxml", Utils.currentStage(event)));
+            }
+        });
     }
 }

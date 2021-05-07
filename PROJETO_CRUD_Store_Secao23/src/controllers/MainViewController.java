@@ -42,7 +42,6 @@ public class MainViewController implements Initializable {
         try {
             // Get new view
             FXMLLoader loader = new FXMLLoader(getClass().getResource(absolutePathFile));
-            System.out.println(loader.getLocation());
             VBox newVBox = loader.load();
             // Get main view
             Scene mainScene = Main.getMainScene();
