@@ -1,6 +1,6 @@
 package controllers;
 
-import Services.DepartmentServices;
+import services.DepartmentServices;
 import app.Main;
 import controllers.listener.DataChangeListener;
 import entities.Department;

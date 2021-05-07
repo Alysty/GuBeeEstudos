@@ -10,7 +10,7 @@ import java.util.Map;
 import java.sql.Statement;
 
 import db.DB;
-import db.DbException;
+import exceptions.DbException;
 import entities.dao.SellerDao;
 import entities.Department;
 import entities.Seller;

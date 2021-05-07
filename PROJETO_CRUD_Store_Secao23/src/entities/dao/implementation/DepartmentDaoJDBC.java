@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.DB;
-import db.DbException;
+import exceptions.DbException;
 import entities.dao.DepartmentDao;
 import entities.Department;
 

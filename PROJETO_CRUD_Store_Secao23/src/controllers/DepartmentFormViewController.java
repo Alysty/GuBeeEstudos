@@ -1,8 +1,9 @@
 package controllers;
 
-import Services.DepartmentServices;
+import exceptions.ValidationException;
+import services.DepartmentServices;
 import controllers.listener.DataChangeListener;
-import db.DbException;
+import exceptions.DbException;
 import entities.Department;
 import gui.util.Alerts;
 import gui.util.Utils;
@@ -41,20 +42,29 @@ public class DepartmentFormViewController implements Initializable {
     //methods with direct attachment to the GUI
     @FXML
     public void buttonSaveAction(ActionEvent actionEvent){
-        if(textFieldName.getText()==""){
-            throw new IllegalStateException("textFieldName was not typed");
-        }
-        if(departmentServices == null){
-            throw new IllegalStateException("departmentServices was null when accessed");
-        }
+        ValidationException validationException = new ValidationException("Validation error has occurred");
         try {
+            if(textFieldName.getText() == null || textFieldName.getText().trim()=="" ){
+                validationException.addError("Name", "Name was not typed");
+                throw validationException;
+            }
+            if(departmentServices == null){
+                throw new IllegalStateException("departmentServices was null when accessed");
+            }
             departmentServices.saveOrUpdate(
                     new Department(Utils.tryToParseIntElseNull(textFieldID.getText()), textFieldName.getText())
             );
             notifyDataChangeListeners();
             Utils.currentStage(actionEvent).close();
+
         }catch(DbException e){
             Alerts.showAlert("Error saving object in the database", null, e.getMessage(), Alert.AlertType.ERROR);
+        }catch(ValidationException e){
+            if(validationException.getErrorsMap().containsKey("Name")) {
+                labelError.setText(validationException.getErrorsMap().get("Name"));
+            }
+        }catch(IllegalStateException e){
+            Alerts.showAlert("Error accessing variable", null, e.getMessage(), Alert.AlertType.ERROR);
         }
 
     }
