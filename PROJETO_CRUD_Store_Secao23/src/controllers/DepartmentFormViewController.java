@@ -1,8 +1,14 @@
 package controllers;
 
+import Services.DepartmentServices;
+import db.DbException;
 import entities.Department;
+import gui.util.Alerts;
+import gui.util.Utils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -24,18 +30,35 @@ public class DepartmentFormViewController implements Initializable {
     private Button buttonCancel;
     //Attributes not attached to FXML
     private Department departmentEntity;
+    private DepartmentServices departmentServices;
     //methods with direct attachment to the GUI
     @FXML
-    public void buttonSaveAction(){
-        System.out.println("Test action for button buttonSaveAction");
+    public void buttonSaveAction(ActionEvent actionEvent){
+        if(textFieldName.getText()==""){
+            throw new IllegalStateException("textFieldName was not typed");
+        }
+        if(departmentServices == null){
+            throw new IllegalStateException("departmentServices was null when accessed");
+        }
+        try {
+            departmentServices.saveOrUpdate(
+                    new Department(Utils.tryToParseIntElseNull(textFieldID.getText()), textFieldName.getText())
+            );
+            Utils.currentStage(actionEvent).close();
+        }catch(DbException e){
+            Alerts.showAlert("Error saving object in the database", null, e.getMessage(), Alert.AlertType.ERROR);
+        }
+
     }
     @FXML
-    public void buttonCancelAction(){
-        System.out.println("Test action for button buttonCancelAction");
+    public void buttonCancelAction(ActionEvent actionEvent){
+        Utils.currentStage(actionEvent).close();
     }
 
     //methods not attached to FXML directly
-
+    public void setDepartmentServices(DepartmentServices departmentServices){
+        this.departmentServices = departmentServices;
+    }
     public void setDepartmentEntity(Department departmentEntity) {
         this.departmentEntity = departmentEntity;
     }

@@ -42,7 +42,10 @@ public class DepartmentListViewController implements Initializable {
     //methods with direct attachment to the GUI
     @FXML
     public void buttonRegisterNewAction(ActionEvent actionEvent){
-        createDialogFormView(new Department(),"/gui/DepartmentFormView.fxml", Utils.currentStage(actionEvent));
+        createDialogFormView(new DepartmentServices(),
+                new Department(),
+                "/gui/DepartmentFormView.fxml",
+                Utils.currentStage(actionEvent));
     }
 
     //methods not attached to FXML directly
@@ -73,13 +76,14 @@ public class DepartmentListViewController implements Initializable {
         tableViewDepartment.setItems(observableList);
     }
 
-    private void createDialogFormView(Department department,String absolutePath, Stage parentStage){
+    private void createDialogFormView(DepartmentServices departmentServices, Department department, String absolutePath, Stage parentStage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(absolutePath));
             Pane pane = loader.load();
 
             DepartmentFormViewController departmentFormViewController = loader.getController();
             departmentFormViewController.setDepartmentEntity(department);
+            departmentFormViewController.setDepartmentServices(departmentServices);
             departmentFormViewController.updateFormData();
 
             Stage newStage = new Stage();
