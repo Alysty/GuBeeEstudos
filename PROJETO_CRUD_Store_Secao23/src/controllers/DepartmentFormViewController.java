@@ -1,5 +1,6 @@
 package controllers;
 
+import entities.Department;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,7 +23,7 @@ public class DepartmentFormViewController implements Initializable {
     @FXML
     private Button buttonCancel;
     //Attributes not attached to FXML
-
+    private Department departmentEntity;
     //methods with direct attachment to the GUI
     @FXML
     public void buttonSaveAction(){
@@ -32,9 +33,24 @@ public class DepartmentFormViewController implements Initializable {
     public void buttonCancelAction(){
         System.out.println("Test action for button buttonCancelAction");
     }
+
     //methods not attached to FXML directly
 
+    public void setDepartmentEntity(Department departmentEntity) {
+        this.departmentEntity = departmentEntity;
+    }
+    public void updateFormData(){
+        if(departmentEntity == null){
+            throw new IllegalStateException("The departmentEntity variable was null when accessed");
+        }
+        if(departmentEntity.getId() == null){
+            textFieldID.setText("");
+        }else{
+            textFieldID.setText(String.valueOf(departmentEntity.getId()));
+        }
+        textFieldName.setText(departmentEntity.getName());
 
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
