@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31b15150-6ab1-4648-9f34-b08191ff49dd" name="Default Changelist" comment="" />
+    <list default="true" id="31b15150-6ab1-4648-9f34-b08191ff49dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/entities/Seller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/entities/dao/DaoFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/entities/dao/DepartmentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/entities/dao/SellerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/entities/dao/implementation/DepartamentDaoJDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PROJETO_CRUD_Store_Secao23/src/entities/dao/implementation/SellerDaoJDBC.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,19 +67,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Program" />
@@ -89,6 +83,7 @@
       <updated>1620212848187</updated>
       <workItem from="1620212849740" duration="5821000" />
       <workItem from="1620302678429" duration="753000" />
+      <workItem from="1620386325735" duration="34000" />
     </task>
     <servers />
   </component>
