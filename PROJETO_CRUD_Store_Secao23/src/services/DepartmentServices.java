@@ -16,7 +16,7 @@ public class DepartmentServices {
     }
     public void saveOrUpdate(Department department){
         if (department.getName() == "" || department.getName() == null){
-            throw new DbException("Error, in saveOoUpdate, not able to save to database");
+            throw new DbException("Error, in saveOrUpdate, not able to save to database");
         }else if(department.getId() == null){
             departmentDao.insert(department);
         }else{

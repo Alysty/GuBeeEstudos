@@ -26,7 +26,7 @@ public class MainViewController implements Initializable {
     //methods attached to the GUI
     @FXML
     private void menuItemSellerAction(){
-        System.out.println("testing : menuItemSellerAction");
+        loadView("/gui/SellerListView.fxml");
     }
     @FXML
     private void menuItemDepartmentAction(){
