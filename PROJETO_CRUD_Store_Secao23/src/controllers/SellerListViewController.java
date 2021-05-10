@@ -3,6 +3,7 @@ package controllers;
 import exceptions.DbException;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.scene.control.*;
+import services.DepartmentServices;
 import services.SellerServices;
 import app.Main;
 import controllers.listener.DataChangeListener;
@@ -48,23 +49,25 @@ public class SellerListViewController implements Initializable, DataChangeListen
     @FXML
     private TableColumn<Seller, Seller> tableColumnRemove;
     //Attributes not attached to FXML
-    private SellerServices service;
+    private SellerServices sellerServices;
+    private DepartmentServices departmentServices;
     private ObservableList<Seller> observableList;
     //methods with direct attachment to the GUI
     @FXML
 
     public void buttonRegisterNewAction(ActionEvent actionEvent){
-        /*createDialogFormView(new SellerServices(),
+        createDialogFormView(sellerServices,
                 new Seller(),
                 "/gui/SellerFormView.fxml",
-                Utils.currentStage(actionEvent));*/
+                Utils.currentStage(actionEvent),
+                departmentServices);
     }
 
     //methods not attached to FXML directly
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeNodes();
-        setSellerService(new SellerServices());
+        setServices(new SellerServices(), new DepartmentServices());
         updateTableView();
     }
 
@@ -81,29 +84,31 @@ public class SellerListViewController implements Initializable, DataChangeListen
 
     }
 
-    public void setSellerService(SellerServices service) {
-        this.service = service;
+    public void setServices(SellerServices sellerServices , DepartmentServices departmentServices) {
+        this.sellerServices = sellerServices;
+        this.departmentServices = departmentServices;
     }
     public void updateTableView(){
-        if(service==null){
+        if(sellerServices==null){
             throw new IllegalStateException("service variable was null");
         }
-        List<Seller> list = service.findAll();
+        List<Seller> list = sellerServices.findAll();
         observableList = FXCollections.observableArrayList(list);
         tableViewSeller.setItems(observableList);
         initEditButtons();
         initRemoveButtons();
     }
-/*
-    private void createDialogFormView(SellerServices sellerServices, Seller seller, String absolutePath, Stage parentStage){
+
+    private void createDialogFormView(SellerServices sellerServices, Seller seller, String absolutePath, Stage parentStage, DepartmentServices departmentServices){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(absolutePath));
             Pane pane = loader.load();
 
             SellerFormViewController sellerFormViewController = loader.getController();
             sellerFormViewController.setSellerEntity(seller);
-            sellerFormViewController.setSellerServices(sellerServices);
+            sellerFormViewController.setServices(sellerServices, departmentServices);
             sellerFormViewController.subscribeToDataChangeListener(this);
+            sellerFormViewController.updateComboBox();
             sellerFormViewController.updateFormData();
             Stage newStage = new Stage();
             newStage.setTitle("Register a new Seller");
@@ -116,7 +121,7 @@ public class SellerListViewController implements Initializable, DataChangeListen
             Alerts.showAlert("Error loading new view",null, "ERROR loading view SellerFormView with error message:" + e, Alert.AlertType.ERROR);
         }
     }
-*/
+
     @Override
     public void onDataChanged() {
         updateTableView();
@@ -135,9 +140,9 @@ public class SellerListViewController implements Initializable, DataChangeListen
                     return;
                 }
                 setGraphic(button);
-                button.setOnAction( event -> System.out.println("test"));
-                       /* event -> createDialogFormView(
-                                service,seller,"/gui/SellerFormView.fxml", Utils.currentStage(event)));*/
+                button.setOnAction(
+                       event -> createDialogFormView(
+                               sellerServices ,seller,"/gui/SellerFormView.fxml", Utils.currentStage(event),departmentServices));
             }
         });
     }
@@ -161,11 +166,11 @@ public class SellerListViewController implements Initializable, DataChangeListen
     private void removeEntity(Seller seller){
         Optional<ButtonType> resultAlert = Alerts.showConfirmation("Confirm deletion", "Are you sure you want to delete this seller? ");
         if(resultAlert.get() == ButtonType.OK){
-            if(service==null){
+            if(sellerServices==null){
                 throw new IllegalStateException("Service variable is null when accessed");
             }
             try {
-                service.delete(seller);
+                sellerServices.delete(seller);
                 updateTableView();
             } catch (DbException e) {
                 Alerts.showAlert("Error removing object", null,e.getMessage(), Alert.AlertType.ERROR);
