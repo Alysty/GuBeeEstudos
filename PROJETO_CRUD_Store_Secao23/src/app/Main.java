@@ -8,6 +8,11 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
+
+    public static void main(String[] args) {
+        launch(args);
+    }
     private static Scene mainScene;
 
     @Override
@@ -30,9 +35,5 @@ public class Main extends Application {
 
     public static void setMainScene(Scene mainScene) {
         Main.mainScene = mainScene;
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
