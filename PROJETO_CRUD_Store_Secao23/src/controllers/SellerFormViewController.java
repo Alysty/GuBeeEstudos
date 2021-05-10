@@ -17,9 +17,11 @@ import services.DepartmentServices;
 import services.SellerServices;
 
 import java.net.URL;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -66,37 +68,53 @@ public class SellerFormViewController implements Initializable {
         try {
             if(textFieldName.getText() == null || textFieldName.getText().trim().equals("") ){
                 validationException.addError("Name", "Name was not typed");
+            }
+            if(textFieldEmail.getText() == null || textFieldEmail.getText().trim().equals("") ){
+                validationException.addError("Email", "Email was not typed");
+            }
+            if(textFieldSalary.getText() == null || textFieldSalary.getText().trim().equals("") ){
+                validationException.addError("Salary", "Salary was not typed");
+            }
+            if (datePickerBirthDate.getValue() == null){
+                validationException.addError("Birthdate", "Birthdate was not typed");
+            }
+            if(validationException.getErrorsMap().size()>0){
                 throw validationException;
             }
             if(sellerServices == null){
                 throw new IllegalStateException("sellerServices was null when accessed");
-            }/*
+            }
             sellerServices.saveOrUpdate(
                     //Seller(Integer id, String name, String email, Date birthDate, Double baseSalary, Department department)
                     new Seller(
                             Utils.tryToParseIntElseNull(textFieldID.getText()),
                             textFieldName.getText(),
                             textFieldEmail.getText(),
-                            datePickerBirthDate.getText(),
+                            Date.from(Instant.from(datePickerBirthDate.getValue().atStartOfDay(ZoneId.systemDefault()))),
                             Utils.tryToParseDoubleElseNull(textFieldSalary.getText()),
-                            comboBoxDepartment.get
+                            comboBoxDepartment.getValue()
                     )
-            );*/
+            );
             notifyDataChangeListeners();
             Utils.currentStage(actionEvent).close();
 
         }catch(DbException e){
             Alerts.showAlert("Error saving object in the database", null, e.getMessage(), Alert.AlertType.ERROR);
         }catch(ValidationException e){
-            if(validationException.getErrorsMap().containsKey("Name")) {
-                labelErrorName.setText(validationException.getErrorsMap().get("Name"));
-            }
+            setErrorMessages(e);
         }catch(IllegalStateException e){
             Alerts.showAlert("Error accessing variable", null, e.getMessage(), Alert.AlertType.ERROR);
         }
 
     }
+    private void setErrorMessages(ValidationException validationException){
 
+        labelErrorName.setText(validationException.getErrorsMap().containsKey("Name") ? validationException.getErrorsMap().get("Name") : "");
+        labelErrorEmail.setText(validationException.getErrorsMap().containsKey("Email") ? validationException.getErrorsMap().get("Email") : "");
+        labelErrorSalary.setText(validationException.getErrorsMap().containsKey("Salary") ? validationException.getErrorsMap().get("Salary") : "");
+        labelErrorBirthDate.setText(validationException.getErrorsMap().containsKey("Birthdate") ? validationException.getErrorsMap().get("Birthdate") : "");
+
+    }
     
     @FXML
     public void buttonCancelAction(ActionEvent actionEvent){
