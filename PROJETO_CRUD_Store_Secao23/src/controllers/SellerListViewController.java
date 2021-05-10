@@ -22,6 +22,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -31,11 +32,17 @@ public class SellerListViewController implements Initializable, DataChangeListen
     @FXML
     private TableView<Seller> tableViewSeller;
     @FXML
-    private TableColumn<Seller,Integer> tableColumnID;
-    @FXML
-    private TableColumn<Seller,String> tableColumnName;
-    @FXML
     private Button buttonRegisterNew;
+    @FXML
+    private TableColumn<Seller, Integer> tableColumnID;
+    @FXML
+    private TableColumn<Seller, String> tableColumnName;
+    @FXML
+    private TableColumn<Seller, String> tableColumnEmail;
+    @FXML
+    private TableColumn<Seller, Date> tableColumnBirthDate;
+    @FXML
+    private TableColumn<Seller, Double> tableColumnSalary;
     @FXML
     private TableColumn<Seller, Seller> tableColumnEdit;
     @FXML
@@ -64,6 +71,11 @@ public class SellerListViewController implements Initializable, DataChangeListen
     private void initializeNodes(){
         tableColumnID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableColumnName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tableColumnEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tableColumnBirthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
+        Utils.formatTableColumnDate(tableColumnBirthDate,"dd/MM/yy");
+        tableColumnSalary.setCellValueFactory(new PropertyValueFactory<>("baseSalary"));
+        Utils.formatTableColumnDouble(tableColumnSalary, 2);
         Stage stage = (Stage) Main.getMainScene().getWindow();
         tableViewSeller.prefHeightProperty().bind(stage.heightProperty());
 
