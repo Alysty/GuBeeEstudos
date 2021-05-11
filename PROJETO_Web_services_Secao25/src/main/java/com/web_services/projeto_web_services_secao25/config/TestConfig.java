@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import com.web_services.projeto_web_services_secao25.repositories.UserRepository;
+import org.springframework.context.annotation.Profile;
 
 import java.util.Arrays;
 
 @Configuration
+@Profile("test")
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
