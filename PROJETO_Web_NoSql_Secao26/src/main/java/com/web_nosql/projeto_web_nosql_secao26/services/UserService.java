@@ -1,6 +1,7 @@
 package com.web_nosql.projeto_web_nosql_secao26.services;
 
 import com.web_nosql.projeto_web_nosql_secao26.domain.User;
+import com.web_nosql.projeto_web_nosql_secao26.dto.UserDTO;
 import com.web_nosql.projeto_web_nosql_secao26.repository.UserRepository;
 import com.web_nosql.projeto_web_nosql_secao26.services.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +24,12 @@ public class UserService {
         Optional<User> user = userRepository.findById(id);
         return user.orElseThrow(() -> new ObjectNotFoundException("Object not found"));
     }
+    public User insert(User user){
+        return userRepository.insert(user);
+    }
+
+    public User fromDTO(UserDTO userDTO){
+        return new User(userDTO.getId(),userDTO.getName(), userDTO.getEmail());
+    }
+
 }
