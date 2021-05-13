@@ -1,12 +1,12 @@
 package com.web_nosql.projeto_web_nosql_secao26.domain;
 
 import com.web_nosql.projeto_web_nosql_secao26.dto.AuthorDTO;
+import com.web_nosql.projeto_web_nosql_secao26.dto.CommentDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
 @Document
 public class Post implements Serializable {
@@ -18,6 +18,7 @@ public class Post implements Serializable {
     private String title;
     private String body;
     private AuthorDTO author;
+    private List<CommentDTO> commentDTOList= new ArrayList<>();
 
 
 
@@ -71,6 +72,14 @@ public class Post implements Serializable {
 
     public void setAuthor(AuthorDTO author) {
         this.author = author;
+    }
+
+    public List<CommentDTO> getCommentDTOList() {
+        return commentDTOList;
+    }
+
+    public void setCommentDTOList(List<CommentDTO> commentDTOList) {
+        this.commentDTOList = commentDTOList;
     }
 
     @Override
