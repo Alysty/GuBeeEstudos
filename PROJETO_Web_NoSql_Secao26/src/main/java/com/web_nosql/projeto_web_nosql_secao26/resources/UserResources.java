@@ -1,5 +1,6 @@
 package com.web_nosql.projeto_web_nosql_secao26.resources;
 
+import com.web_nosql.projeto_web_nosql_secao26.domain.Post;
 import com.web_nosql.projeto_web_nosql_secao26.domain.User;
 import com.web_nosql.projeto_web_nosql_secao26.dto.UserDTO;
 import com.web_nosql.projeto_web_nosql_secao26.services.UserService;
@@ -45,5 +46,9 @@ public class UserResources {
         userDTO.setId(id);
         userService.update(userService.fromDTO(userDTO));
         return ResponseEntity.noContent().build();
+    }
+    @RequestMapping(value = "/{id}/posts",method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPost(@PathVariable String id){
+        return ResponseEntity.ok().body(userService.findById(id).getPostList());
     }
 }
