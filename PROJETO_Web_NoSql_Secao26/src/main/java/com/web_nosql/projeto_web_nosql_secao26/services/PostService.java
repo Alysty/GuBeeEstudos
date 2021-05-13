@@ -6,6 +6,7 @@ import com.web_nosql.projeto_web_nosql_secao26.services.exception.ObjectNotFound
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,4 +26,7 @@ public class PostService {
         return postRepository.findByTitleContaining(title);
     }
 
+    public List<Post> fullSearch(String text, Date minDate, Date maxDate) {
+        return postRepository.fullSearch(text, minDate, new Date(maxDate.getTime() + 24 * 60 * 60 * 1000));
+    }
 }
