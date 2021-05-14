@@ -2,13 +2,36 @@
 
   <article>
     <h3>
-     Testing variables
+     Testing more bindings
     </h3>
-    <p> Testing double braces with variable: {{testBraces}}</p>
-    <p> Testing double braces with expresion: {{5*6}} </p>
-    <p> Testing double braces with methods: {{testMethod()}}</p>
 
+    <div>
+      <select #alertClass (change)="0">
+        <option value="alert-primary">
+          This is a primary alert—check it out!
+        </option>
+        <option value="alert-secondary">
+          This is a secondary alert—check it out!
+        </option>
+        <option value="alert-success">
+          This is a success alert—check it out!
+        </option>
+      </select>
 
-    <img [src]="urlImg">
+      <div class="alert {{alertClass.value}}"> always on</div>
+
+      <div class="alert alert-primary" role="alert" [class.alert-primary]="alertClass.value == 'alert-primary'">
+        This is a primary alert—check it out!
+      </div>
+      <div class="alert alert-secondary" role="alert" [class.alert-secondary]="alertClass.value == 'alert-secondary'">
+        This is a secondary alert—check it out!
+      </div>
+      <div class="alert alert-success" role="alert" [class.alert-success]="alertClass.value == 'alert-success'">
+        This is a success alert—check it out!
+      </div>
+
+      <div class="alert alert-success" role="alert" [style.display]="alertClass.value == 'alert-success' ? 'block': 'none' ">WORKED</div>
+    </div>
+
   </article>
 </section>
