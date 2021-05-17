@@ -9,3 +9,12 @@
 <p appHighlight [defaultColor]="'blue'" [highlightColor]="'red'">
   Text for testing multiple custom directives at once
 </p>
+
+<div *ngIf = "!flag">
+  if
+</div>
+<div *ngElse="!flag">
+  else
+</div>
+
+<button class="btn btn-primary" (click)="changeFlag()">Change Flag</button>

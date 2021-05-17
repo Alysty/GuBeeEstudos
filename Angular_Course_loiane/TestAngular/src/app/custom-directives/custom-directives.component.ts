@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomDirectivesComponent implements OnInit {
 
+  flag : boolean = true;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeFlag(){
+    this.flag = !this.flag;
+  }
 }
