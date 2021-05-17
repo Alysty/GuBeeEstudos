@@ -4,9 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CursosService {
-
+  courses : string [] = ['first', 'second', 'third'];
   constructor() { }
   getCourses(){
-    return ['first', 'second', 'third']
+    return this.courses
+  }
+  addValue(valueToAdd : string){
+    this.courses.push(valueToAdd)
   }
 }
