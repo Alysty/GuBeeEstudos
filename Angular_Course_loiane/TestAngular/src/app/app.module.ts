@@ -6,12 +6,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CounterComponent } from './counter/counter.component';
 import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
 import { DirectiveNgswitchComponent } from './directive-ngswitch/directive-ngswitch.component';
+import { DirectiveNgforComponent } from './directive-ngfor/directive-ngfor.component';
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
     DiretivaNgifComponent,
-    DirectiveNgswitchComponent
+    DirectiveNgswitchComponent,
+    DirectiveNgforComponent
   ],
   imports: [
     BrowserModule,
