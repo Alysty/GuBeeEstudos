@@ -7,13 +7,16 @@ import { CounterComponent } from './counter/counter.component';
 import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
 import { DirectiveNgswitchComponent } from './directive-ngswitch/directive-ngswitch.component';
 import { DirectiveNgforComponent } from './directive-ngfor/directive-ngfor.component';
+import { DirectiveNgclassComponent } from './directive-ngclass/directive-ngclass.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CounterComponent,
     DiretivaNgifComponent,
     DirectiveNgswitchComponent,
-    DirectiveNgforComponent
+    DirectiveNgforComponent,
+    DirectiveNgclassComponent
   ],
   imports: [
     BrowserModule,
