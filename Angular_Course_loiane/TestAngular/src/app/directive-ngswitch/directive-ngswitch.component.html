@@ -1,0 +1,14 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="nav navbar-nav">
+    <a class="nav-item nav-link" [class.active]="tab == 'Home'"(click)="linkChange('Home')">Home</a>
+    <a class="nav-item nav-link" [class.active]="tab == 'Features'"(click)="linkChange('Features')">Features</a>
+    <a class="nav-item nav-link" [class.active]="tab == 'Pricing'"(click)="linkChange('Pricing')">Pricing</a>
+  </div>
+</nav>
+
+<div class="container" [ngSwitch]="tab">
+  <p *ngSwitchCase="'Home'">Test for {{tab}}</p>
+  <p *ngSwitchCase="'Features'">Test for {{tab}}</p>
+  <p *ngSwitchCase="'Pricing'">Test for {{tab}}</p>
+  <p *ngSwitchDefault> nothing clicked yet </p>
+</div>
