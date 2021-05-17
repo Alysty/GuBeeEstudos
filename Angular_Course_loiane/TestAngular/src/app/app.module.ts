@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import { ElvisOperatorComponent } from './elvis-operator/elvis-operator.component';
 import { YellowBackgroundDirective } from './shared/yellow-background.directive';
 import { CustomDirectivesComponent } from './custom-directives/custom-directives.component';
+import { HighlightMouseDirective } from './shared/highlight-mouse.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CustomDirectivesComponent } from './custom-directives/custom-directives
     DirectiveNgstyleComponent,
     ElvisOperatorComponent,
     YellowBackgroundDirective,
-    CustomDirectivesComponent
+    CustomDirectivesComponent,
+    HighlightMouseDirective
   ],
   imports: [
     BrowserModule,
