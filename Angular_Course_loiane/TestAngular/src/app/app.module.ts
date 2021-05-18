@@ -20,6 +20,7 @@ import { CursosComponent } from './cursos/cursos.component';
 import {CursosService} from "./cursos/cursos.service";
 import {LogService} from "./shared/log.service";
 import { PipesExampleComponent } from './pipes-example/pipes-example.component';
+import { CamelCasePipe } from './shared/camel-case.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PipesExampleComponent } from './pipes-example/pipes-example.component';
     HighlightDirective,
     NgElseDirective,
     CursosComponent,
-    PipesExampleComponent
+    PipesExampleComponent,
+    CamelCasePipe
   ],
   imports: [
     BrowserModule,
