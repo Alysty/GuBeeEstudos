@@ -4,3 +4,8 @@
     {{course.name}}
   </a>
 </div>
+<div class="navbar">
+  <button class="btn btn-dark" (click)="previousPage()" *ngIf="page>1" >Previous page</button>
+  <button class="btn btn-dark" (click)="nextPage()">Next page</button>
+</div>
+

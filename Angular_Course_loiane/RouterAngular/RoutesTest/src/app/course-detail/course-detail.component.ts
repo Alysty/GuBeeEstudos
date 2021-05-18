@@ -31,4 +31,8 @@ export class CourseDetailComponent implements OnInit {
 
   }
 
+  ngOnDestroy(){
+    this.subscription.unsubscribe()
+  }
+
 }
