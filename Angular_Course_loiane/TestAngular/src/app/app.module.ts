@@ -18,6 +18,7 @@ import { HighlightDirective } from './shared/highlight.directive';
 import { NgElseDirective } from './shared/ng-else.directive';
 import { CursosComponent } from './cursos/cursos.component';
 import {CursosService} from "./cursos/cursos.service";
+import {LogService} from "./shared/log.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import {CursosService} from "./cursos/cursos.service";
     NgbModule,
     FormsModule
   ],
-  providers: [CursosService],
+  providers: [CursosService, LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
