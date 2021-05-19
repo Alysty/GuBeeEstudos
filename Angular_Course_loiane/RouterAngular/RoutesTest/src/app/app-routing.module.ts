@@ -5,11 +5,15 @@ import {LoginComponent} from "./login/login.component";
 
 import {NotFoundComponent} from "./courses/not-found/not-found.component";
 import {AuthGuard} from "./guards/auth.guard";
+import {CourseGuard} from "./guards/course.guard";
+import {StudentGuard} from "./guards/student.guard";
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  {path: 'courses', canActivate: [AuthGuard], loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)},
-  {path: 'students', canActivate: [AuthGuard], loadChildren: () => import('./students/students.module').then(m => m.StudentsModule)},
+  {path: 'courses', canActivate: [AuthGuard], canActivateChild:[CourseGuard],
+    loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)},
+  {path: 'students', canActivate: [AuthGuard], canActivateChild:[StudentGuard],
+    loadChildren: () => import('./students/students.module').then(m => m.StudentsModule)},
   {path: 'login', component: LoginComponent},
   {path: 'notFound', component:NotFoundComponent , canActivate: [AuthGuard]}
 ];

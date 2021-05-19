@@ -10,6 +10,8 @@ import { FormsModule } from "@angular/forms";
 import { LoginModule } from "./login/login.module";
 import {LoginAuthService} from "./login/login-auth.service";
 import {AuthGuard} from "./guards/auth.guard";
+import {CourseGuard} from "./guards/course.guard";
+import {StudentGuard} from "./guards/student.guard";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import {AuthGuard} from "./guards/auth.guard";
     FormsModule
 
   ],
-  providers: [LoginAuthService, AuthGuard],
+  providers: [LoginAuthService, AuthGuard, CourseGuard, StudentGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
