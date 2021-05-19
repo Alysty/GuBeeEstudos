@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {LoginAuthService} from "./login-auth.service";
-import {LoginComponent} from "./login.component";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {FormsModule} from "@angular/forms";
+import { LoginComponent } from "./login.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule } from "@angular/forms";
 
 
 
@@ -12,10 +11,11 @@ import {FormsModule} from "@angular/forms";
     LoginComponent
   ],
   imports: [
+    CommonModule,
     NgbModule,
     FormsModule
   ],
-  providers: [LoginAuthService],
+  providers: [],
   exports:[]
 
 })
