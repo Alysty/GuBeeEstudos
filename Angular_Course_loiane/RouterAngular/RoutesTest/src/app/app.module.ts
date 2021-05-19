@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './courses/not-found/not-found.component';
 import { CoursesModule } from "./courses/courses.module";
+import { StudentsModule } from "./students/students.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CoursesModule } from "./courses/courses.module";
     BrowserModule,
     NgbModule,
     CoursesModule,
+    StudentsModule,
     AppRoutingModule
 
   ],
