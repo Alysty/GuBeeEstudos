@@ -7,14 +7,11 @@ import {RouterModule} from "@angular/router";
 import {CoursesRoutingModule} from "./courses-routing.module";
 
 
-
-
 @NgModule({
-  declarations:
-    [
+  declarations: [
       CoursesComponent,
       CourseDetailComponent
-    ],
+  ],
   imports: [
     CommonModule,
     RouterModule,

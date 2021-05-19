@@ -7,7 +7,7 @@ import {AuthGuard} from "../guards/auth.guard";
 
 
 const routes: Routes = [
-  {path: 'students', component: StudentsComponent, canActivate: [AuthGuard], children:[
+  {path: '', component: StudentsComponent, canActivate: [AuthGuard], children:[
       {path: 'new', component: StudentFormComponent},
       {path: ':id', component: StudentDetailComponent},
       {path: ':id/edit', component: StudentFormComponent}

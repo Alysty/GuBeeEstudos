@@ -24,7 +24,6 @@ export class CoursesComponent implements OnInit {
     this.subscription = this.route.queryParams.subscribe(
       (params)=>{
         this.page = Number(params['page'])
-        console.log(typeof this.page)
       }
     );
   }
