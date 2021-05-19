@@ -1,1 +1,32 @@
-<p>student-form works!</p>
+<h5>Student form</h5>
+
+<div class="col-12">
+
+  <div class="row">
+    <div class="input-group mb-3">
+      <input disabled id=disabled [(ngModel)]="student.id" type="text" class="form-control" placeholder="Id" aria-label="Id" aria-describedby="basic-addon1">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon1">#</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-group mb-3">
+      <input [(ngModel)]="student.name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">First name</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-group mb-3">
+      <input [(ngModel)]="student.email" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon3">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon3">email@example.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-dark">Save</button>
+  </div>
+</div>
