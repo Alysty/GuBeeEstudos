@@ -1,1 +1,24 @@
-<p>login works!</p>
+<p>Login</p>
+
+<div class="row">
+  <div class="input-group mb-3 col-6">
+    <input [(ngModel)]="username" type="text" class="form-control" placeholder="Login" aria-label="Login" aria-describedby="basic-addon1">
+    <div class="input-group-append">
+      <span class="input-group-text" id="basic-addon1">Login</span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="input-group mb-3 col-6">
+    <input [(ngModel)]="password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <span class="input-group-text"  id="basic-addon2">Password</span>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <button class="btn btn-dark" (click)="login()">Login</button>
+  </div>
+</div>
+
