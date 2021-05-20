@@ -12,12 +12,14 @@ import {LoginAuthService} from "./login/login-auth.service";
 import {AuthGuard} from "./guards/auth.guard";
 import {CourseGuard} from "./guards/course.guard";
 import {StudentGuard} from "./guards/student.guard";
+import { NotFoundAllComponent } from './not-found-all/not-found-all.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NotFoundAllComponent
   ],
   imports: [
     BrowserModule,

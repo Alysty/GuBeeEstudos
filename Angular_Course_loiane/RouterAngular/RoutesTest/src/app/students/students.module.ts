@@ -7,6 +7,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
 import {StudentsRoutingModule} from "./students-routing.module";
 import {StudentsService} from "./students.service";
 import {FormsModule} from "@angular/forms";
+import {StudentsDeactivateGuard} from "../guards/students-deactivate.guard";
 
 
 
@@ -22,6 +23,6 @@ import {FormsModule} from "@angular/forms";
     FormsModule
   ],
   exports:[],
-  providers:[StudentsService]
+  providers:[StudentsService, StudentsDeactivateGuard]
 })
 export class StudentsModule { }
