@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../data-types/User";
 
 @Component({
   selector: 'app-template-form',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent implements OnInit {
-
+  user : User = {email:'testEmail', name:'testName'}
   constructor() { }
 
   ngOnInit(): void {
