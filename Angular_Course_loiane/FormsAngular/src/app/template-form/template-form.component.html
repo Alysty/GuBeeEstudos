@@ -1,1 +1,13 @@
-<p>template-form works!</p>
+<form #form = "ngForm" (ngSubmit)="onSubmit(form)">
+  <div class="form-group">
+    <label for="InputEmail">Email address</label>
+    <input type="email" class="form-control" id="InputEmail"
+           aria-describedby="emailHelp" placeholder="Enter email" ngModel name="Email">
+  </div>
+  <div class="form-group">
+    <label for="InputName">Name</label>
+    <input type="text" class="form-control" id="InputName"
+           placeholder="Enter your name" ngModel name="Name">
+  </div>
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
