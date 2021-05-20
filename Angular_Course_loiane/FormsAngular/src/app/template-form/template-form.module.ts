@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { TemplateFormComponent } from './template-form.component';
 import { TemplateFormRoutingModule } from "./template-form-routing.module";
 import {FormsModule} from "@angular/forms";
+import { FormDebugComponent } from './form-debug/form-debug.component';
 
 
 @NgModule({
   declarations: [
-    TemplateFormComponent
+    TemplateFormComponent,
+    FormDebugComponent
   ],
   imports: [
     CommonModule,
