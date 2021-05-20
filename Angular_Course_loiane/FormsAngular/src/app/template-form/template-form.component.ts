@@ -7,7 +7,7 @@ import {User} from "../data-types/User";
   styleUrls: ['./template-form.component.css']
 })
 export class TemplateFormComponent implements OnInit {
-  user : User = {email:'testEmail', name:'testName'}
+  user : User = {email:'', name:''}
   constructor() { }
 
   ngOnInit(): void {
