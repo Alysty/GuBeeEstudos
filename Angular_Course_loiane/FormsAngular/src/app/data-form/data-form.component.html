@@ -1,1 +1,20 @@
-<p>data-form works!</p>
+<form [formGroup]="form" >
+  <div class="form-group">
+    <label for="InputEmail">Email address</label>
+    <input type="email" class="form-control" id="InputEmail"
+           aria-describedby="emailHelp" placeholder="Enter email" formControlName="email"
+           required email
+    >
+  </div>
+  <div class="form-group">
+    <label for="InputName">Name</label>
+    <input type="text" class="form-control" id="InputName"
+           placeholder="Enter your name" formControlName="name"
+           required
+    >
+  </div>
+  <button type="submit" class="btn btn-dark">Submit</button>
+  <div class="container">
+    <app-form-debug [form]="form"></app-form-debug>
+  </div>
+</form>

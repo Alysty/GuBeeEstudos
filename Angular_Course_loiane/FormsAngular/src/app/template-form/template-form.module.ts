@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TemplateFormComponent } from './template-form.component';
 import { TemplateFormRoutingModule } from "./template-form-routing.module";
 import {FormsModule} from "@angular/forms";
-import { FormDebugComponent } from './form-debug/form-debug.component';
+import { FormDebugComponent } from '../shared/form-debug/form-debug.component';
 
 
 @NgModule({
@@ -18,6 +18,8 @@ import { FormDebugComponent } from './form-debug/form-debug.component';
     FormsModule
   ],
   providers:[],
-  exports:[]
+  exports: [
+    FormDebugComponent
+  ]
 })
 export class TemplateFormModule { }
